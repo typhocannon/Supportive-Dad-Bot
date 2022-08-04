@@ -37,7 +37,7 @@ async def on_message(message):
         print("does have I'm")
         # creating a list of words in the message
         index = -1
-        name = 'dsdfsdfsdgsdgshsoekfseos'
+        name = ''
         # list = message.content.split()
         print(list)
         print(len(list))
@@ -63,7 +63,7 @@ async def on_message(message):
                     if list[index + 1] == item:
                         return
                 if index != list.index(word):
-                    name = name + word
+                    name = name + ' ' + word
 
         
         # check if name is valid
