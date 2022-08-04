@@ -1,5 +1,6 @@
 # dadbot.py
 import os
+from tabnanny import check
 import discord
 import random
 import string
@@ -28,16 +29,19 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    # default variables for index and name
-    index = -1
-    name = 'dsdfsdfsdgsdgshsoekfseos'
-
     # checks if I'm or im is in the message to commence dad joke
-    # creating a list of words in the message
     list = message.content.split()
     if len(list) == 1:
             return
-    if "i'm" in list or "im" in list or "I'M" in list or "Im" in list or "IM" in list:
+    if "i'm" in list or "im" in list or "I'm" in list or "Im" in list or "IM" in list:
+        print("does have I'm")
+        # creating a list of words in the message
+        index = -1
+        name = 'dsdfsdfsdgsdgshsoekfseos'
+        # list = message.content.split()
+        print(list)
+        print(len(list))
+
         # look through the list to find im 
         for word in list:
             print(word)
@@ -54,6 +58,9 @@ async def on_message(message):
         
         # check if index is valid
         if index != -1:
+            for item in string.punctuation:
+                if list[index + 1] == item:
+                    return
             name = list[index + 1]
 
         # check if name is valid
@@ -69,7 +76,7 @@ async def on_message(message):
             print(name)
 
         # list of quotes from a supportive father
-        # Currently has 19 quotes
+        # Currently has 20 quotes
         father_quotes = [
             f"Hi {name.capitalize()}! Hope you're having a great day today.", 
             f'Hi {name.capitalize()}! Have you done the dishes yet? We can get some ice cream afterwards!', 
@@ -92,8 +99,13 @@ async def on_message(message):
             f"Hey {name.capitalize()}, you've got a good heart. Don't ever lose it.",
             f"Hi {name.capitalize()}, ready to do some errands with your good ol' pops?",
             f"Hi {name.capitalize()}, are ya' winning?",
+            #20
         ]
         response = random.choice(father_quotes)
+        print(response)
         await message.channel.send(response)
+    else:
+        print("no im")
+        return
 
 client.run(TOKEN)
