@@ -36,7 +36,8 @@ async def on_message(message):
     if "i'm" in message.content.lower() or "im" in message.content.lower():
         # creating a list of words in the message
         list = message.content.split()
-
+        if len(list) == 1:
+            return
         # look through the list to find im 
         for word in list:
             print(word)
