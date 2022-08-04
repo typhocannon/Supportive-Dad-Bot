@@ -1,1 +1,1 @@
-worker python dadbot.py 
+worker: python dadbot.py 
