@@ -1,1 +1,1 @@
-worker node dadbot.py 
+worker python dadbot.py 
