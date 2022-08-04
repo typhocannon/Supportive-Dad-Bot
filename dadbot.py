@@ -58,22 +58,25 @@ async def on_message(message):
         
         # check if index is valid
         if index != -1:
-            for item in string.punctuation:
-                if list[index + 1] == item:
-                    return
-            name = list[index + 1]
+            for word in list:
+                for item in string.punctuation:
+                    if list[index + 1] == item:
+                        return
+                if index != list.index(word):
+                    name = name + word
 
+        
         # check if name is valid
-        if name != 'dsdfsdfsdgsdgshsoekfseos':
+        #if name != 'dsdfsdfsdgsdgshsoekfseos':
             # check if the next word is 'a' or 'your'
-            if name.lower() == 'a':
-                name = name + ' ' + list[index + 2]
-            elif name.lower() == 'your':
-                name = name + ' ' + list[index + 2]
+            #if name.lower() == 'a':
+            #    name = name + ' ' + list[index + 2]
+           # elif name.lower() == 'your':
+               # name = name + ' ' + list[index + 2]
             # get rid of puncuation in the name
-            name = name.translate(str.maketrans('', '', string.punctuation))
+            #name = name.translate(str.maketrans('', '', string.punctuation))
             # debug check if name is correct
-            print(name)
+            #print(name)
 
         # list of quotes from a supportive father
         # Currently has 20 quotes
