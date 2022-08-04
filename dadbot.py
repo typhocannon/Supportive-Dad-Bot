@@ -33,11 +33,11 @@ async def on_message(message):
     name = 'dsdfsdfsdgsdgshsoekfseos'
 
     # checks if I'm or im is in the message to commence dad joke
-    if "i'm" in message.content.lower() or "im" in message.content.lower():
-        # creating a list of words in the message
-        list = message.content.split()
-        if len(list) == 1:
+    # creating a list of words in the message
+    list = message.content.split()
+    if len(list) == 1:
             return
+    if "i'm" in list or "im" in list or "I'M" in list or "Im" in list or "IM" in list:
         # look through the list to find im 
         for word in list:
             print(word)
@@ -49,6 +49,8 @@ async def on_message(message):
                 index = list.index("Im")
             elif word == "I'm":
                 index = list.index("I'm")
+            elif word == "IM":
+                index = list.index("IM")
         
         # check if index is valid
         if index != -1:
