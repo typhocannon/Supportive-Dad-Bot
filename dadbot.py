@@ -37,7 +37,6 @@ async def on_message(message):
         print("does have I'm")
         # creating a list of words in the message
         index = -1
-        name = ''
         # list = message.content.split()
         print(list)
         print(len(list))
