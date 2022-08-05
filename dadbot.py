@@ -62,26 +62,16 @@ async def on_message(message):
                 for item in string.punctuation:
                     if list[index + 1] == item:
                         return
+                # setting first part of name
                 if (index + 1) == list.index(word):
                     name = word
+                # setting the next words
                 elif index != list.index(word) and word != list[-1]:
                     name = name + ' ' + word
+                # setting last word and getting rid of puncuation
                 elif word == list[-1]:
                     word = word.translate(str.maketrans('', '', string.punctuation))
                     name = name + ' ' + word
-
-        
-        # check if name is valid
-        #if name != 'dsdfsdfsdgsdgshsoekfseos':
-            # check if the next word is 'a' or 'your'
-            #if name.lower() == 'a':
-            #    name = name + ' ' + list[index + 2]
-           # elif name.lower() == 'your':
-               # name = name + ' ' + list[index + 2]
-            # get rid of puncuation in the name
-            #name = name.translate(str.maketrans('', '', string.punctuation))
-            # debug check if name is correct
-            #print(name)
 
         # list of quotes from a supportive father
         # Currently has 20 quotes
