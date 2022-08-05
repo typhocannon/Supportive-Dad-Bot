@@ -99,7 +99,11 @@ async def on_message(message):
             f"Hi {name.capitalize()}, are ya' winning?",
             #20
         ]
-        response = random.choice(father_quotes)
+        bot_name = 'Supportive Dad Bot'
+        if name == bot_name.lower():
+            response = "Hey! That's me! Haha great joke kiddo."
+        else:
+            response = random.choice(father_quotes)
         print(response)
         await message.channel.send(response)
     else:
