@@ -62,7 +62,7 @@ async def on_message(message):
                 for item in string.punctuation:
                     if list[index + 1] == item:
                         return
-                if index == list.index(word) + 1:
+                if (index + 1) == list.index(word):
                     name = word
                 elif index != list.index(word) and word != list[-1]:
                     name = name + ' ' + word
