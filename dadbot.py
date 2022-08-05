@@ -64,7 +64,7 @@ async def on_message(message):
                         return
                 if index == list.index(word) + 1:
                     name = name
-                elif index != list.index(word):
+                elif index != list.index(word) and word != list[-1]:
                     name = name + ' ' + word
                 elif word == list[-1]:
                     word = word.translate(str.maketrans('', '', string.punctuation))
