@@ -62,7 +62,7 @@ async def on_message(message):
                     if list[index + 1] == item:
                         return
                 if index == list.index(word) + 1:
-                    name = name
+                    name = word
                 elif index != list.index(word) and word != list[-1]:
                     name = name + ' ' + word
                 elif word == list[-1]:
