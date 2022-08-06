@@ -51,25 +51,6 @@ async def on_message(message):
                 index = list.index(word)
             elif word.lower() == "i’m":
                 index = list.index(word)
-            #if word == "i'm":
-                #index = list.index("i'm")
-            #elif word == "I'm":
-                #index = list.index("I'm")
-            #elif word == "I'M":
-                #index = list.index("I'M")
-            #elif word == "im":
-                #index = list.index("im")
-            #elif word == "Im":
-                #index = list.index("Im")
-            #elif word == "IM":
-                #index = list.index("IM")
-            #elif word == "i’m":
-                #index = list.index("i’m")
-            #elif word == "I’m":
-                #index = list.index("I’m")
-            #elif word == "I’M":
-                #index = list.index("I’M")
-            
         
         # check if index is valid
         if index != -1:
