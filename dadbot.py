@@ -33,7 +33,7 @@ async def on_message(message):
     list = message.content.split()
     if len(list) == 1:
             return
-    if "i'm" in list or "im" in list or "I'm" in list or "Im" in list or "IM" in list:
+    if "i'm" in list or "im" in list or "I'm" in list or "Im" in list or "IM" in list or "I‘m" in list or "i‘m" in list or "I‘M" in list:
         print("does have I'm")
         # creating a list of words in the message
         index = -1
@@ -47,14 +47,23 @@ async def on_message(message):
             print(word)
             if word == "i'm":
                 index = list.index("i'm")
+            elif word == "I'm":
+                index = list.index("I'm")
+            elif word == "I'M":
+                index = list.index("I'M")
             elif word == "im":
                 index = list.index("im")
             elif word == "Im":
                 index = list.index("Im")
-            elif word == "I'm":
-                index = list.index("I'm")
             elif word == "IM":
                 index = list.index("IM")
+            elif word == "i‘m":
+                index = list.index("i‘m")
+            elif word == "I‘m":
+                index = list.index("I‘m")
+            elif word == "I‘M":
+                index = list.index("I‘M")
+            
         
         # check if index is valid
         if index != -1:
