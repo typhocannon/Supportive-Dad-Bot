@@ -5,8 +5,8 @@ import discord
 import random
 import string
 from dotenv import load_dotenv
-import requests
-from bs4 import BeautifulSoup
+#import requests
+#from bs4 import BeautifulSoup
 
 # checking intents to be able to send msgs
 intents = discord.Intents.default()
