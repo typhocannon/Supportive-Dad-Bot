@@ -72,7 +72,7 @@ async def on_message(message):
                     name = name + ' ' + word
 
         # list of quotes from a supportive father
-        # Currently has 20 quotes
+        # Currently has 30 quotes
         father_quotes = [
             f"Hi {name.capitalize()}! Hope you're having a great day today.", 
             f'Hi {name.capitalize()}! Have you done the dishes yet? We can get some ice cream afterwards!', 
@@ -97,6 +97,16 @@ async def on_message(message):
             f"Hi {name.capitalize()}, are ya' winning?",
             #20
             f"Hey {name.capitalize()}, I'll leave the rest to you.",
+            f"Hi {name.capitalize()}! Cooked your favorite today. Hurry on home!",
+            f"Hey {name.capitalize()}! Remember I'm always there for you. Give your old man a call some times alright?",
+            f"{name.capitalize()}, Never stop fighting.",
+            f"Hey {name.capitalize()}! Look! I've learned the moves of the youth. ✊👊. Pretty swag from your pops right?",
+            f"Hi there {name.capitalize()}, went to the market today and this reminded me of those anime things you like! Here ya' go kiddo! You call these uhh a 'waifu'? I think.",
+            f"Hey {name.capitalize()}, wanna listen to some old bangers with your old man?",
+            f"Hey {name.capitalize()}, you've grown up so much. I'm proud of you.",
+            f"Hi {name.capitalize()}, looks like you've been online for a while. Do you wanna take a break and play some catch with your dear ol' dad?",
+            f"Hey {name.capitalize()}, Stay strong kiddo. Greatness awaits you, I know it.",
+            #30
         ]
         
         # If user calls themself supportive dad bot it has a special message
@@ -105,25 +115,34 @@ async def on_message(message):
             response = "Hey! That's me! Haha great joke kiddo."
         else:
             # Chooses randomly between 0 and 1 to see if it takes original quote (0) or webscrapes (1)
-            #num = random.randint(0, 1)
-            num = 2
+            num = random.randint(0, 1)
             if num == 1:
                 response = random.choice(father_quotes)
             else:
+                # url to scrape the joke from
                 URL = "https://icanhazdadjoke.com/"
                 page = requests.get(URL)
-
+                
+                # parse the html from the url
                 soup = BeautifulSoup(page.content, "html.parser")
-
+                
+                # find the area that contains the joke
                 joke = soup.find("p", "subtitle")
-
                 joke2 = joke.prettify()
 
+                # get the text by removing the html objects from the joke
                 joke3 = BeautifulSoup(joke2, 'html.parser')
                 joke3 = joke3.get_text()
-
                 joke4 = joke3.strip()
-                greeting = f"Hey {name.capitalize()} "
+                
+                # random number between 0 and 2 to see which greeting to use
+                num2 = random.randint(0, 2)
+                if num2 == 0:
+                    greeting = f"Hey there {name.capitalize()}, "
+                elif num2 == 1:
+                    greeting = f"Hi {name.capitalize()}, "
+                else:
+                    greeting = f"Hey {name.capitalize()}! "
                 response = greeting + joke4
         print(response)
         await message.channel.send(response)
