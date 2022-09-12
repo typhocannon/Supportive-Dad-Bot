@@ -106,25 +106,25 @@ async def on_message(message):
         else:
             # Chooses randomly between 0 and 1 to see if it takes original quote (0) or webscrapes (1)
             #num = random.randint(0, 1)
-            num = 1
+            num = 2
             if num == 1:
                 response = random.choice(father_quotes)
-            #else:
-                #URL = "https://icanhazdadjoke.com/"
-                #page = requests.get(URL)
+            else:
+                URL = "https://icanhazdadjoke.com/"
+                page = requests.get(URL)
 
-                #soup = BeautifulSoup(page.content, "html.parser")
+                soup = BeautifulSoup(page.content, "html.parser")
 
-                #joke = soup.find("p", "subtitle")
+                joke = soup.find("p", "subtitle")
 
-                #joke2 = joke.prettify()
+                joke2 = joke.prettify()
 
-                #joke3 = BeautifulSoup(joke2, 'html.parser')
-                #joke3 = joke3.get_text()
+                joke3 = BeautifulSoup(joke2, 'html.parser')
+                joke3 = joke3.get_text()
 
-                #joke4 = joke3.strip()
-                #greeting = f"Hey {name.capitalize()} "
-                #response = greeting + joke4
+                joke4 = joke3.strip()
+                greeting = f"Hey {name.capitalize()} "
+                response = greeting + joke4
         print(response)
         await message.channel.send(response)
     else:
