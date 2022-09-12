@@ -106,7 +106,7 @@ async def on_message(message):
         else:
             # Chooses randomly between 0 and 1 to see if it takes original quote (0) or webscrapes (1)
             #num = random.randint(0, 1)
-            num = 2
+            num = 1
             if num == 1:
                 response = random.choice(father_quotes)
             else:
