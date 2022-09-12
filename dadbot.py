@@ -109,22 +109,7 @@ async def on_message(message):
             num = 1
             if num == 1:
                 response = random.choice(father_quotes)
-            else:
-                URL = "https://icanhazdadjoke.com/"
-                page = requests.get(URL)
 
-                soup = BeautifulSoup(page.content, "html.parser")
-
-                joke = soup.find("p", "subtitle")
-
-                joke2 = joke.prettify()
-
-                joke3 = BeautifulSoup(joke2, 'html.parser')
-                joke3 = joke3.get_text()
-
-                joke4 = joke3.strip()
-                greeting = f"Hey {name.capitalize()} "
-                response = greeting + joke4
         print(response)
         await message.channel.send(response)
     else:
