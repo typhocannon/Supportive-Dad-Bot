@@ -5,6 +5,8 @@ import discord
 import random
 import string
 from dotenv import load_dotenv
+import requests
+from bs4 import BeautifulSoup
 
 # checking intents to be able to send msgs
 intents = discord.Intents.default()
@@ -94,12 +96,35 @@ async def on_message(message):
             f"Hi {name.capitalize()}, ready to do some errands with your good ol' pops?",
             f"Hi {name.capitalize()}, are ya' winning?",
             #20
+            f"Hey {name.capitalize()}, I'll leave the rest to you.",
         ]
+        
+        # If user calls themself supportive dad bot it has a special message
         bot_name = 'Supportive Dad Bot'
         if name == bot_name.lower():
             response = "Hey! That's me! Haha great joke kiddo."
         else:
-            response = random.choice(father_quotes)
+            # Chooses randomly between 0 and 1 to see if it takes original quote (0) or webscrapes (1)
+            #num = random.randint(0, 1)
+            num = 2
+            if num == 1:
+                response = random.choice(father_quotes)
+            else:
+                URL = "https://icanhazdadjoke.com/"
+                page = requests.get(URL)
+
+                soup = BeautifulSoup(page.content, "html.parser")
+
+                joke = soup.find("p", "subtitle")
+
+                joke2 = joke.prettify()
+
+                joke3 = BeautifulSoup(joke2, 'html.parser')
+                joke3 = joke3.get_text()
+
+                joke4 = joke3.strip()
+                greeting = f"Hey {name.capitalize()} "
+                response = greeting + joke4
         print(response)
         await message.channel.send(response)
     else:
