@@ -7,6 +7,9 @@ import string
 from dotenv import load_dotenv
 import requests
 from bs4 import BeautifulSoup
+from keep_alive import keep_alive
+
+keep_alive()
 
 # checking intents to be able to send msgs
 intents = discord.Intents.default()
